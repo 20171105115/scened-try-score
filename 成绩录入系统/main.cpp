@@ -20,9 +20,8 @@ struct Stu{
  };
 int main(){
 int min,max,average=0;
-int i,n,t=0;
-    
-scanf("%d",&n);
+int i,n,t=0,n1;
+    scanf("%d",&n);
 struct Stu a[n];
 struct Stu *head,*p;
     head=&a[t];
@@ -48,49 +47,4 @@ struct Stu *head,*p;
             }
         }
     }
- 
- 
-
- /*max=a[i].Judge1;
- min=0;
- if(max<a[i].Judge)
- {
- max=a[i].Judge2;
- }
- if(min>a[i].Judge[j])
- {
- a[i].Judge[min]=a[i].Judge[j];
- }
- average=(a[i].Judge[1]+ a[i].Judge[2]+a[i].Judge[3]+a[i].Judge[4]+a[i].Judge[5]-a[i].Judge[max]-a[i].Judge[min])/3.0;
- 
- }
-
-/*int main(int argc,const char * argv[])
-{
-    FILE *a;
-    FILE *b;
-    b=fopen("//Users/s20171105115/Desktop/test.csv","a");
-    char s1[50];
-    char s2[50];
-    char s3[50];
-    char s4[50];
-    char s5[50];
-    char s6[50];
-    char s7[50];
-    char s8[50];
-    char s9[50];
-    char s10[50];
-    char s11[50];
-    if((a=fopen("/Users/s20171105115/Desktop/studentdata.csv","r"))==0)
-    {
-        printf("文件不存在\n");
-    }
-    else{
-        
-        fscanf(a,"%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ",s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11);
-        fprintf(b,"%s %s %s %s %s %s %s %s %s %s %s\n",s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11);
-        printf("%s %s %s %s %s %s %s %s %s %s %s\n",s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11);
-    }
-    
-}*/
 }
