@@ -16,16 +16,17 @@ struct Stu{
  int Judge3[5];
  int Judge4[5];
  int Judge5[5];
+ int *p;
  struct Stu *next;
  };
 int main(){
 int min,max,average=0;
-int i,n,t=0,n1;
-    scanf("%d",&n);
-struct Stu a[n];
+int i,n,t=0,n1,m,j;
+    scanf("%d %d",&n,&m);
+struct Stu a[n][m];
 struct Stu *head,*p;
-    head=&a[t];
-    a[t].next=&a[t+1];
+    head=&a[t][0];
+    a[t][0].next=&a[t+1][0];
     p=head;
     FILE *s;
     FILE *b;
@@ -36,14 +37,16 @@ struct Stu *head,*p;
     }
     else{
         for(i=0;i<n;i++){
-            while(p!=0){
-            fscanf(s,"%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ",a[i].Number,a[i].Name,a[i].Sex,a[i].Birth,a[i].Class,a[i].Phone,a[i].Judge1,a[i].Judge2,a[i].Judge3,a[i].Judge4,a[i].Judge5);
-                 printf("%s/%s/%s/%s/%s/%s/%s/%s/%s/%s/%s",p->Number,p->Name,p->Sex,p->Birth,p->Class,p->Phone,p->Judge1,p->Judge2,p->Judge3,p->Judge4,p->Judge5);
-                printf("\n");
-                fprintf(b,"%s ,%s ,%s ,%s ,%s ,%s ,%d ,%d ,%d ,%d ,%d\n",p->Number,p->Name,p->Sex,p->Birth,p->Class,p->Phone
-                ,p->Judge1,p->Judge2,p->Judge3,p->Judge4,p->Judge5);
-                p=p->next;
-                break;
+            for(j=0;j<m;j++){
+                if(p!=0){
+                   fscanf(s,"%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s",a[i][j].Number,a[i][j].Name,a[i][j].Sex,a[i][j].Birth,a[i][j].Class,a[i][j].Phone,a[i][j].Judge1,a[i][j].Judge2,a[i][j].Judge3,a[i][j].Judge4,a[i][j].Judge5);
+                   printf("%s/%s/%s/%s/%s/%s/%s/%s/%s/%s/%s",a[i][j].Number,a[i][j].Name,a[i][j].Sex,a[i][j].Birth,a[i][j].Class,a[i][j].Phone,a[i][j].Judge1,a[i][j].Judge2,a[i][j].Judge3,a[i][j].Judge4,a[i][j].Judge5);
+                   printf("\n");
+                   printf("%d\n",p->Judge1-'0');
+                   fprintf(b,"%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s\n",a[i][j].Number,a[i][j].Name,a[i][j].Sex,a[i][j].Birth,a[i][j].Class,a[i][j].Phone,a[i][j].Judge1,a[i][j].Judge2,a[i][j].Judge3,a[i][j].Judge4,a[i][j].Judge5);
+                   p=p->next;
+                   break;
+                }
             }
         }
     }
